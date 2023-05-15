@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Survey Form</title>
+</head>
+<body>
+    <h1 id="title">Sample Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve the platform</p>
+    <form id="survey-form">
+        <fieldset>
+            <label class="name" for="name" id="name-label">Name<input id="name" name="name" type="text" placeholder="John Smith" required/></label>
+            
+            <label class="email" for="email" id="email-label">Email<input id="email" name="email" type="email" placeholder="johnsmith@email.com" required></label>
+            
+            <label class="number" for="number" id="number-label">Age (optional)<input id="number" name="number" type="number" min="13" max="120" placeholder="13"required></label>
+            
+            <label for="selectorone">Which option best describes your experience with this form?
+                <select id="dropdown" name="dropdown" required>
+                    <option value="">(select one)</option>
+                    <option value="1">It's great, I love it</option>
+                    <option value="2">Pretty good, but can improve</option>
+                    <option value="3">Functional, but still needs work</option>
+                    <option value="4">Terrible, try again</option>
+                </select>
+            </label>
+            
+            <label for="definitely"><input id="definitely" type="radio" name="recommendation" class="inline" value="1" /> Definitley</label>
+            
+            <label for="maybe"><input id="maybe" type="radio" name="recommendation" class="inline" value="2"/> Maybe</label>
+            
+            <label for="dropdown2">What's your favorite aspect of this survey?
+                <select id="dropwdown2" name="dropdown2" required>
+                    <option value="">(select one)</option>
+                    <option value="1">The Looks</option>
+                    <option value="2">The Tech</option>
+                    <option value="3">The Dev</option>
+                </select>
+            </label>
+            <label for="checkboxes">
+                <input id="checkboxes" type="checkbox" required name="checkboxes" value="answerone"/> 1
+                <input id="checkboxes" type="checkbox" required name="checkboxes" value="answertwo"/> 2
+                <input id="checkboxes" type="checkbox" required name="checkboxes" value="answerthree"/> 3
+            </label>
+
+            <label for="bio">Provide a bio
+                <textarea id="bio" name="bio" rows="3" cols="30" placeholder="I like coding on the beach..."></textarea>
+            </label>
+
+        </fieldset>
+        <input id="submit" type="submit" value="Submit" />
+    </form>
+</body>
+</html>

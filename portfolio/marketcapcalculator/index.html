@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/portfolio/marketcapcalculator/css/stylesheet.css">
+    <script src="https://kit.fontawesome.com/ac35951f3b.js" crossorigin="anonymous"></script>
+    <title>Marketcap Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Marketcap Calculator</h1>
+
+        <h2 class="maintitle">Calculate the real potential of your assets!</h2>
+
+        <img src="/portfolio/marketcapcalculator/img/money.gif" width:50px height:50px>
+
+
+        <div class="information">
+            <div class="input-area">
+                <h2> Step 1:</h2>
+                <p class="description">Total Supply: </p>
+                <input type="number" id="maxsupply">
+            </div>
+
+            <div class="input-area">
+                <h2> Step 2:</h2>
+                <p class="description">Current Circulating Supply: </p>
+                <input type="number" id="circulatingsupply">
+            </div>
+
+
+            <div class="input-area">
+                <h2> Step 3:</h2>
+                <p class="description">Current Price:</p>
+                <input type="number" id="currentprice">
+            </div>
+
+
+            <div class="input-area">
+                <h2> Step 4:</h2>
+                <input type="button" id="submit" value="CLICK ME!!!" />
+            </div>
+
+
+            <div class="output-area">
+                <h3> Current Marketcap:</h3>
+                <div id="result1"></div>
+
+                <h3> Fully Diluted Marketcap:</h3>
+                <div id="result2"></div>
+            </div>
+
+
+            <div class="socials">
+                <h3>Share this app</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-login__icon fab fa-instagram"></a>
+                    <a href="#" class="social-login__icon fab fa-facebook"></a>
+                    <a href="#" class="social-login__icon fab fa-twitter"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="/portfolio/marketcapcalculator/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.wrapper {
+    width: 400px;
+    background-color:black;
+    color:white;
+}
+
+.calc-button-row{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom:0.5%;
+}
+
+.screen{
+    font-family:'Courier New', Courier, monospace;
+    text-align:right;
+    padding: 20px 5px;
+    font-size:40px;
+}
+
+button{
+    background-color: #d8d9db;
+    color: #000;
+    border:none;
+    font-size:40px;
+    height:100px;
+    flex-basis:24.5%;
+
+}
+button:hover{
+    background-color: #ebebeb;
+    color: #000;
+
+}
+button:active{
+    background-color: #bbbcbe;
+    color: #000;
+
+}
+
+.symbols{
+    background-color: #df974c;
+    color: #ffffff;
+
+}
+.symbols:hover{
+    background-color: #dfb07e;
+    color: #ffffff;
+
+}
+.symbols:active{
+    background-color: #dd8d37;
+    color: #ffffff;
+
+}
+
+.double{
+
+    flex-basis:49.65%;
+
+}
+
+.triple{
+
+    flex-basis:74.8%;
+
+}
+
+.goback{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #000000;
+    font-size:30px;
+    height:100px;
+    
+    
+
+}
+
+.goback:hover{
+    color: #dd8d37;
+
+}

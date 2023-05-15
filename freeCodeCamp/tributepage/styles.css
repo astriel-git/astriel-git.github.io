@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*{
+    margin:0;
+}
+
+/*All tags have been assigned with the fonts they should use*/
+h1, h2{
+    font-family:Nunito;
+}
+
+p, li, cite, figcaption{
+    font-family:PT Sans;
+}
+
+
+/* The styles for the everything within the first section of the HTML markup "header" */
+#header{
+    background-color: rgb(225, 225, 225);
+    text-align:center;
+    padding:50px 0;
+    
+}
+
+#header p{
+    padding-top:15px;
+    font-size:18px;
+}
+
+#header h1{
+    font-size:40px;
+}
+
+
+/* The styles for the everything within the second section of the HTML markup "gallery" */
+#gallery{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+#gallery img{
+    width:30%;
+    margin:50px auto 0px auto;
+    max-width: 100%;
+    display:block;
+    height:auto;
+
+
+}
+
+
+/* The styles for the everything within the third section of the HTML markup "tribute-info" */
+#tribute-info{
+    background-color: rgb(225, 225, 225);
+    
+}
+
+#tribute-info h2{
+    padding-top:60px;
+    text-align:center;
+    font-size:20px;
+}
+
+#tribute-info ul{
+    display: table;
+    margin: 0 auto;
+    max-width:35%;
+
+}
+#tribute-info li:first-child{
+    padding-top:40px;
+
+}
+#tribute-info li:last-child{
+    padding-bottom:40px;
+
+}
+
+#tribute-info li{
+    padding-bottom:20px;
+
+}
+
+
+.citation{
+    text-align:left;
+    margin:0 auto;
+    max-width:35%;
+    font-size:20px;
+}
+
+.citation p{
+    font-size:20px;
+    margin-top:20px;
+    padding-bottom: 60px;
+    text-align:left;
+}
+
+/* The styles for the everything within the fourth section of the HTML markup "ending" */
+
+#ending{
+    background-color:white;
+    margin:30px 0;
+    text-align:center;
+}
+
+#ending p{
+    font-size:25px;
+    font-weight:bold;
+}

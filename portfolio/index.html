@@ -16,28 +16,32 @@
 
     <nav>
         <ul>
-          <li>
-            <h1>
-              <a href="index.html">
-                <i class="fa-solid fa-scissors" aria-hidden="true"></i>
-                <span>Lucas Patricio</span>
-              </a>
-              </h1></li>
-          <li><a href="#projects">Projetos</a></li>
-          <li><a href="about.html">Sobre</a></li>
-          <li><a href="#contact">Contato</a></li>
-          <li>
-            <a href="https://www.linkedin.com/in/lucas-patricio-34693326b/" target="_blank">
-              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-              <span class="sr-only">LinkedIn</span>
-              </a>
-              </li>
-          <li>
-            <a href="https://www.github.com/astriel-git">
-              <i class="fa-brands fa-github" aria-hidden="true"></i>
-              <span class="sr-only">GitHub</span>
-              </a>
-              </li>
+            <li>
+            <div class="main-nav"><img class="brand" alt="logo" src="/portfolio/gallery2/img/logo.gif" /></div>
+            <div class="mynamelogo"><h1><a href="index.html"><span> Lucas Patricio</span></a></h1></div>
+            </li>
+
+            
+
+
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="about.html">Sobre</a></li>
+            <li><a href="#contact">Contato</a></li>
+
+            <li>
+                <a href="https://www.linkedin.com/in/lucas-patricio-34693326b/" target="_blank">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.github.com/astriel-git">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <span class="sr-only">GitHub</span>
+                </a>
+            </li>
+
           <li><a href="https://www.dropbox.com/s/3z2hm5gu3v2lrfy/JenKramerCV.pdf?dl=0" class="button">Currículo</a></li>
         </ul>
     </nav>
@@ -57,13 +61,29 @@
 
 <div class="section-dkblue">
     <section id="projects">
-        <h2>Projects de que tenho orgulho</h2>
+        <h2>Meus projetos</h2>
+
+        <article class="reverse">
+            <div class="text">
+                <h4>Bootcamp FrontEnd Masters</h4>
+                    <h3>Calculadora Simples</h3>
+                    <p class="blackbox">Esse foi o meu primemiro projeto unindo HTML, CSS e JavaScript. É uma calculadora simples, que utiliza de todo o conhecimento do bootcamp introdutório do <a href="https://frontendmasters.com">FrontEnd Masters</a>. Você pode conferir a calculadora <a href="/portfolio/calculator/calculator.html">aqui!</a>.</p>
+                    <h4>Tecnologias utilizadas:</h4>
+                        <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        </ul>
+            </div>
+                <img src="../portfolio/img/calc.jpg" alt="Mão usando uma calculadora na tela de um tablet."
+                height="280px" />
+        </article>
 
         <article>
             <div class="text">
-                <h4>Últimos projetos</h4>
-                    <h3>Site da Estação CWB V.1</h3>
-                    <p class="blackbox">A barbearia tem tido cada vez mais alcançe e procura online. Por este motivo era de extrema importancia que o nosso negócio tivesse um cartão de visitas na internet. O site passou por várias alterações no decorrer do tempo, e hoje cheguei neste template moderno e minimalista, com um mix de apenas as informações de maior relevância para clientes em potencial. Você pode visitar o site <a href="https://frontendmasters.github.io/grid-flexbox-v2/">aqui</a>, e se quiser, já aproveite para nos conheçer no <a href="#">Instagram</a> e <a href="#">Facebook</a>.</p>
+                <h4>Website da Barbearia</h4>
+                    <h3>Site da Estação CWB v1</h3>
+                    <p class="blackbox">A barbearia tem tido cada vez mais alcançe e procura online. Por este motivo era de extrema importancia que o nosso negócio tivesse um cartão de visitas na internet. O site passou por várias alterações no decorrer do tempo, e hoje cheguei neste template moderno e minimalista, com um mix de apenas as informações de maior relevância para clientes em potencial. Você pode visitar o site <a href="https://frontendmasters.github.io/grid-flexbox-v2/">aqui</a>, e se quiser, já aproveite para nos conheçer no <a href="https://www.instagram.com/estacaocwb/?hl=en">Instagram</a> e <a href="https://www.facebook.com/estacaobbs/">Facebook</a>.</p>
                     <h4>Tecnologias utilizadas:</h4>
                         <ul>
                             <li>HTML</li>
@@ -90,18 +110,7 @@
                 <img src="../portfolio/img/neuhaus.png" alt="Screenshot do site da Neuhaus." />
         </article>
         
-        <article>
-            <div class="text">
-                <h4>Projeto de Automação</h4>
-                    <h3>Emissão Automática de Nota Fiscal</h3>
-                    <p class="blackbox">Buscando facilitar a vida de alguns amigos e clientes, desenvolvi essa ferramenta simples para automatizar a emissão de notas fiscais na plataforma do ISS-Curitiba. Esse é meu primeiro projeto de programação com python, e no futuro eu espero integrar essa ferramenta a um website para revender.</p>
-                    <h4>Technologies used include:</h4>
-                        <ul>
-                        <li>JavaScript</li>
-                        </ul>
-            </div>
-                <img src="../portfolio/img/python.jpg" alt="Screenshot of a wall of code." />
-        </article>
+        
     
     </section>
 </div>
@@ -142,6 +151,7 @@
         </ul>
         <p><small>&copy; 2023 Lucas Patricio. All rights reserved.</small></p>
     </footer>
-
+<script src="https://unpkg.com/popmotion@8.5.0/dist/popmotion.js"></script>
+<script src="./js/myscripts.js"></script>
 </body>
 </html>

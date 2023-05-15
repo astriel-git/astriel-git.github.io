@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poiret+One&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+body {
+
+
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(/portfolio/marketcapcalculator/img/background.gif);
+
+
+}
+
+
+.container {
+    align-items: center;
+
+    border-radius: 1%;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: auto;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+
+
+    background-color: rgb(233, 233, 233);
+
+
+
+}
+
+h1 {
+
+    font-family: 'Poiret One', cursive;
+    padding-left: 10%;
+
+}
+
+.description {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: -15px;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.maintitle {
+    padding-left: 10%;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+p {
+    text-align: center;
+
+    margin-bottom: 20px;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+
+
+}
+
+img {
+
+    margin-left: 30%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.information {
+
+    text-align: center;
+}
+
+input {
+
+    border-radius: 40px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+
+button {
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 40px;
+    padding: 10px 60px;
+
+}
+
+.socials {
+
+    text-align: right;
+    padding-bottom: 20px;
+    padding-right: 10px;
+
+
+
+}
+
+
+.socials a {
+    text-decoration: none;
+
+}
+
+#result1,
+#result2 {
+
+    height: 50px;
+    margin-top: 10px;
+    font-size: 30pt;
+
+    background-color: lightgray;
+
+    border-radius: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
+}

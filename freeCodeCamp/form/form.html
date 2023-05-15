@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Survey Form</title>
+</head>
+
+  <body>
+    <div class="container">
+
+      <header class="header">
+        <h1 id="title" class="text-center">Rate this Survey</h1>
+        <p id="description" class="description text-center">
+          How would (YOU) rate this survey form?
+        </p>
+      </header>
+
+
+      <form id="survey-form">
+
+        
+        <div class="form-group">
+          <label id="name-label" for="name">Name</label>
+          <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required="">
+        </div>
+
+        <div class="form-group">
+          <label id="email-label" for="email">Email</label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required="">
+        </div>
+
+        <div class="form-group">
+          <label id="number-label" for="number">Age<span class="clue">(optional)</span></label>
+          <input type="number" name="age" id="number" min="13" max="120" class="form-control" placeholder="Age">
+        </div>
+
+        <div class="form-group">
+          <p>Which option best describes your overall impression?</p>
+          <select id="dropdown" name="role" class="form-control" required="">
+            <option disabled="" selected="" value="">Select satisfaction level</option>
+            <option value="impressed">Absolutley Impressed</option>
+            <option value="satisfied">Satisfied</option>
+            <option value="justok">Alright</option>
+            <option value="dissapointed">Dissapointed</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>Would you recommend this form to a friend?</p>
+          <label>
+            <input name="user-recommend" value="definitely" type="radio" class="input-radio" checked="">Definitely</label>
+          <label>
+            <input name="user-recommend" value="maybe" type="radio" class="input-radio">Maybe</label>
+
+          <label><input name="user-recommend" value="never" type="radio" class="input-radio">Never</label>
+        </div>
+
+        <div class="form-group">
+          <p>What is your favorite feature of this form?</p>
+          <select id="most-like" name="mostLike" class="form-control" required="">
+            <option disabled="" selected="" value="">Select an option</option>
+            <option value="dropdown">These dropdown menus</option>
+            <option value="checkboxes">The checkboxes</option>
+            <option value="design">Overall design</option>
+            <option value="everything">Everything</option>
+            <option value="nothing">Nothing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>
+            Would you kindly pick a number?
+            <span class="clue">(Is it obvious I ran out of ideas?)</span>
+          </p>
+
+          <label><input name="prefer" value="one" type="checkbox" class="input-checkbox">One</label>
+          <label><input name="prefer" value="two" type="checkbox" class="input-checkbox">Two</label>
+          <label><input name="prefer" value="three" type="checkbox" class="input-checkbox">Three</label>
+          <label><input name="prefer" value="four" type="checkbox" class="input-checkbox">Four</label>
+          <label><input name="prefer" value="five" type="checkbox" class="input-checkbox">Five</label>
+          <label><input name="prefer" value="six" type="checkbox" class="input-checkbox">Six</label>
+          <label><input name="prefer" value="seven" type="checkbox" class="input-checkbox">Seven</label>
+          <label><input name="prefer" value="eight" type="checkbox" class="input-checkbox">Eight</label>
+          <label><input name="prefer" value="nine" type="checkbox" class="input-checkbox">Nine</label>
+          <label><input name="prefer" value="ten" type="checkbox" class="input-checkbox">Ten</label>
+          <label><input name="prefer" value="eleven" type="checkbox" class="input-checkbox">Eleven</label>
+        </div>
+
+        <div class="form-group">
+          <p>Got anything to say to me? Here's your chance!</p>
+          <textarea id="comments" class="input-textarea" name="comment" placeholder="Write those beautiful words of encouragment..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" id="submit" class="submit-button">
+            Submit
+          </button>
+        </div>
+
+
+
+
+      </form>
+    </div>
+  
+
+</body></html>
