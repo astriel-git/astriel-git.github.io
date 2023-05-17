@@ -1,6 +1,4 @@
-/*
-
-// JavaScript Fundamentals - Part 1
+/* JavaScript Fundamentals - Part 1
 
 // #1 - Values and Variables
 let country = "Brazil"
@@ -334,3 +332,252 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 
 // }
 // checkWinner(scoreDolphins, scoreKoalas);
+
+// #14 - Introduction to Arrays
+
+// const populations = [1000000, 10000000, 100000000, 1000000000]
+// console.log(populations.length === 4);
+
+// const percentages = ["0.01%", "0.13%", "1.27%", "12.66%"];
+// console.log(percentages);
+
+// #15 - Basic Array Operations (Methods)
+
+// const neighbours = ["Argentina", "Paraguay", "Uruguay", "Equator"];
+// console.log(neighbours);
+
+// neighbours.push("Utopia");
+// console.log(neighbours);
+
+// neighbours.pop("Utopia");
+// console.log(neighbours);
+
+// if (neighbours.includes("Germany")) {
+//     console.log("This country is probably in Eastern Europe.");
+// } else {
+//     console.log("Probably not an Eastern European country.");
+// }
+
+// neighbours[3] = "Chile";
+// console.log(neighbours);
+
+// Coding Challenge #5
+
+// //MY SOLUTION
+// const calcTip = function (bill) {
+
+//     if (bill >= 50 && bill <= 300) {
+//         return bill * 0.15;
+//     } else {
+//         return bill * 0.20;
+//     }
+// }
+
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
+// console.log(bills, tips, totals);
+
+// console.log(tips)
+
+// TEACHER'S SOLUTION
+
+// const calcTip = function (bill) {
+//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// }
+
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
+// console.log(bills, tips, totals);
+
+
+// console.log(tips)
+
+// #16 - Introduction to Objects
+
+// const myCountry = {
+//     country: "Brazil",
+//     capital: "Brazilia",
+//     language: "Portuguese",
+//     population: 170000000,
+//     neighbours: ["Paraguay", "Argentina", "Chile", "Peru"],
+
+// }
+
+// console.log(myCountry);
+
+// #17 - Dot vs. Bracket Notation
+
+// const myCountry = {
+//     country: "Brazil",
+//     capital: "Brazilia",
+//     language: "Portuguese",
+//     population: 170000000,
+//     neighbours: ["Paraguay", "Argentina", "Chile", "Peru"],
+
+// }
+
+// console.log(`${myCountry.country} has ${myCountry.population} ${myCountry.language} speaking people, ${myCountry.neighbours.length} neighbouring countries and capital called ${myCountry.capital}.`)
+
+// myCountry.population = myCountry.population + 30000000;
+
+// console.log(`${myCountry.country} has ${myCountry.population} ${myCountry.language} speaking people, ${myCountry.neighbours.length} neighbouring countries and capital called ${myCountry.capital}.`)
+
+// myCountry["population"] = myCountry["population"] - 30000000;
+
+// console.log(`${myCountry.country} has ${myCountry.population} ${myCountry.language} speaking people, ${myCountry.neighbours.length} neighbouring countries and capital called ${myCountry.capital}.`)
+
+// #18 - Object Methods
+
+// const myCountry = {
+//     country: "Brazil",
+//     capital: "Brazilia",
+//     language: "Portuguese",
+//     population: 170000000,
+//     neighbours: ["Paraguay", "Argentina", "Chile", "Peru"],
+//     describe: function() {
+//        return console.log(`${this.country} has ${this.population} ${this.language} speaking people, ${this.neighbours.length} neighbouring countries and capital called ${this.capital}.`)
+//     },
+//     checkIsland: function() {
+//         return this.isIsland = this.neighbours.length === 0 ? true : false;
+//     }
+
+// }
+
+// console.log(myCountry)
+// console.log(myCountry.checkIsland())
+
+// Coding Challenge #6
+
+// MY SOLUTION
+// const mark = {
+//     firstName : "Mark",
+//     lastName : "Miller",
+//     weight : "78",
+//     height : "1.68",
+//     calcBMI : function (){
+//         this.bmi = this.weight / (this.height ** 2);
+//         return this.bmi;
+//     },
+    
+// }
+
+// const john = {
+//     firstName : "John",
+//     lastName : "Smith",
+//     weight : "92",
+//     height : "1.95",
+//     calcBMI : function (){
+//         this.bmi = this.weight / (this.height ** 2);
+//         return this.bmi;
+//     },
+
+    
+// }
+
+// mark.calcBMI() < john.calcBMI() ? console.log(`${john.firstName}'s BMI ${john.bmi.toFixed(2)} is higher than ${mark.firstName} ${mark.bmi.toFixed(2)}`) : console.log(`${mark.firstName}'s BMI ${mark.bmi.toFixed(2)} is higher than ${john.firstName}'s ${john.bmi.toFixed(2)}`) ;
+
+// TEACHER'S SOLUTION
+
+// const mark = {
+//     fullName: "Mark Miller",
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function() {
+//         this.bmi = this.mass / this.height ** 2;
+//         return this.bmi;
+//     }
+// }
+
+// const john = {
+//     fullName: "John Smith",
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function() {
+//         this.bmi = this.mass / this.height ** 2;
+//         return this.bmi;
+//     }
+// }
+
+// mark.calcBMI();
+// john.calcBMI();
+
+// console.log(mark.bmi, john.bmi);
+
+// if (mark.bmi > john.bmi) {
+//     console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`)
+// } else if (mark.bmi < john.bmi) {
+//     console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`)
+// }
+
+// #19 - Iteration: The for Loop
+
+// for (let i = 1; i < 51; i++) {
+//     console.log(`Voter number ${i} is currently voting`);
+// }
+
+// #20 - Looping Arrays, Breaking and Continuing
+
+// const populations = [4000000000, 1440000001, 330000000, 83000000];
+// const percentages2 = [];
+// const percentageOfWorld1 = population => population / 7900000000 * 100;
+
+// for (let i = 0; i < populations.length; i++){
+//     const perc = percentageOfWorld1(populations[i]).toFixed(2);
+//     percentages2.push(perc);
+//     console.log(`The result for population ${i+1} is: ${percentages2[i]}%`);
+// }
+
+// #21 - Looping Backwards and Loops in Loops
+
+// const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+
+// for (let i = 0; i < listOfNeighbours.length; i++) {
+//   for (let j = 0; j < listOfNeighbours[i].length; j++) {
+//     console.log(`Neighbour: ${listOfNeighbours[i][j]}`);
+//   }
+// }
+
+// #22 - The While Loop
+
+// const populations = [4000000000, 1440000001, 330000000, 83000000];
+// const percentages3 = [];
+// const percentageOfWorld1 = population => population / 7900000000 * 100;
+
+// let i = 0;
+// while (i != populations.length){
+//     const perc = percentageOfWorld1(populations[i]).toFixed(2);
+//     percentages3.push(perc);
+//     console.log(`The result for population ${i+1} is: ${percentages3[i]}%`)
+//     i++
+//     ;
+// }
+
+// Coding Challenge #7
+
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const tips = [];
+// const totals = [];
+
+// const calcTip = function (bill) {
+//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2; 
+// }
+
+// for (i = 0; tips.length < bills.length; i++){
+//     tips.push(calcTip(bills[i]));
+//     totals.push((bills[i] + tips[i]));
+// }
+
+// const calcAverage = function(arr) {
+//     let sum = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         sum += arr[i];
+//     }
+//     return sum / arr.length;
+// }
+
+// const average = calcAverage(totals);
+// console.log(average);
+// console.log(tips);
+// console.log(totals);
