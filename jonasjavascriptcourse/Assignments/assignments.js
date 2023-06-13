@@ -240,7 +240,6 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 
 // // The "percentageOfWorld" function calculates the % of a population related to the total world population
 
-
 // function percentageOfWorld(population) {
 //     return (population / 7900000000 * 100)
 // };
@@ -286,8 +285,6 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 // console.log(describePopulation("Brazil", 7900000000))
 
 // Coding Challenge #4
-
-
 
 // This function sums 3 scores and divides them by 3 to get the average;
 // const calcAverage = (scoreA, scoreB, scoreC) => ((scoreA + scoreB + scoreC) / 3);
@@ -391,7 +388,6 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 // const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
 // console.log(bills, tips, totals);
 
-
 // console.log(tips)
 
 // #16 - Introduction to Objects
@@ -460,7 +456,7 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 //         this.bmi = this.weight / (this.height ** 2);
 //         return this.bmi;
 //     },
-    
+
 // }
 
 // const john = {
@@ -473,7 +469,6 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 //         return this.bmi;
 //     },
 
-    
 // }
 
 // mark.calcBMI() < john.calcBMI() ? console.log(`${john.firstName}'s BMI ${john.bmi.toFixed(2)} is higher than ${mark.firstName} ${mark.bmi.toFixed(2)}`) : console.log(`${mark.firstName}'s BMI ${mark.bmi.toFixed(2)} is higher than ${john.firstName}'s ${john.bmi.toFixed(2)}`) ;
@@ -561,23 +556,110 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 // const totals = [];
 
 // const calcTip = function (bill) {
-//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2; 
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+
+// for (i = 0; tips.length < bills.length; i++) {
+//   tips.push(calcTip(bills[i]));
+//   totals.push(bills[i] + tips[i]);
 // }
 
-// for (i = 0; tips.length < bills.length; i++){
-//     tips.push(calcTip(bills[i]));
-//     totals.push((bills[i] + tips[i]));
-// }
-
-// const calcAverage = function(arr) {
-//     let sum = 0;
-//     for (let i = 0; i < arr.length; i++) {
-//         sum += arr[i];
-//     }
-//     return sum / arr.length;
-// }
+// const calcAverage = function (arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += arr[i];
+//   }
+//   return sum / arr.length;
+// };
 
 // const average = calcAverage(totals);
 // console.log(average);
 // console.log(tips);
 // console.log(totals);
+
+// Coding Challenge #8
+
+// const data1 = [17, 21, 23];
+// const data2 = [12, 5, -5, 0, 4];
+
+// const printForecast = function (arr) {
+//   let str = "";
+//   for (let i = 0; i < arr.length; i++) {
+//     str += `${arr[i]}ºC in ${i + 1} days ... `;
+//   }
+//   console.log("... " + str);
+// };
+
+// printForecast(data1);
+// printForecast(data2);
+
+// Coding Challenge #9
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    // Bayern Munich Players
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    // Borrussia Dortmund Players
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+const [gk, ...fieldPlayers] = players1;
+const allPlayers = [...players1, ...players2];
+const players1Final = [...fieldPlayers, "Thiago", "Coutinho", "Perisic"];
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+
+console.log(players1, players2);
+console.log(gk, fieldPlayers);
+console.log(allPlayers);
+console.log(players1Final);
+console.log(
+  `Team1 Odds = ${team1}, Draw Odds = ${draw}, Team2 Odds = ${team2}`
+);
+
+const printGoals = function (...playerNames) {
+  console.log(...playerNames);
+  console.log(`Total Goals = ${playerNames.length}`);
+};
+printGoals("Boobhead", "Titface");
+printGoals(...game.scored);
+
+team1 < team2 && console.log("Team 1 is more likely to win");
+team1 > team2 && console.log("Team 1 is more likely to win");
