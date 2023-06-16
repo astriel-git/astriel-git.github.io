@@ -53,28 +53,81 @@ const restaurant = {
   },
 };
 
+// SETS
+
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+console.log(new Set('Jonas'));
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+for (const order of ordersSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+console.log(new Set('JonasPoopman').size);
+
+// // Property WHOLE
+// const entries = Object.entries(openingHours);
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
+
+// // Property VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// // property NAMES
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `We are open on ${properties.length} days of the week `;
+
+// for (const day of Object.keys(openingHours)) {
+//   openStr += `${day}, `;
+// }
+// console.log(openStr);
+
 // OPTIONAL CHAINING
 // Old way without Optional Chaining:
 // if (restaurant.openingHours && restaurant.openingHours.mon)
 //   console.log(restaurant.openingHours.mon.open);
 
 // New way with Optional Chaining:
-console.log(restaurant.openingHours?.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`On ${day} we open at ${open}`);
-}
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
 
-// Optional Chaining Methods
-console.log(restaurant.order?.(0, 1) ?? `Method doesn't exist`);
-console.log(restaurant.orderRisotto?.(0, 1) ?? `Method doesn't exist`);
+// // Optional Chaining Methods
+// console.log(restaurant.order?.(0, 1) ?? `Method doesn't exist`);
+// console.log(restaurant.orderRisotto?.(0, 1) ?? `Method doesn't exist`);
 
-// Optional Chaining on Arrays
-const users = [{ name: 'Jonas', email: 'hello@jonas.com' }];
-console.log(users[0]?.name ?? 'User array empty');
-console.log(users[1]?.name ?? 'User array empty');
+// // Optional Chaining on Arrays
+// const users = [{ name: 'Jonas', email: 'hello@jonas.com' }];
+// console.log(users[0]?.name ?? 'User array empty');
+// console.log(users[1]?.name ?? 'User array empty');
 
 // Looping Arrays with FOR-OF Loops
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
