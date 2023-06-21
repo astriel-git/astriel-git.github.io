@@ -666,53 +666,53 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 
 // Coding Challenge #10
 
-const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    // Bayern Munich Players
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    // Borrussia Dortmund Players
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-  scorers: {
-    Gnarby: 1,
-    Hummels: 1,
-    Lewandowski: 2,
-  },
-};
+// const game = {
+//   team1: "Bayern Munich",
+//   team2: "Borrussia Dortmund",
+//   players: [
+//     // Bayern Munich Players
+//     [
+//       "Neuer",
+//       "Pavard",
+//       "Martinez",
+//       "Alaba",
+//       "Davies",
+//       "Kimmich",
+//       "Goretzka",
+//       "Coman",
+//       "Muller",
+//       "Gnarby",
+//       "Lewandowski",
+//     ],
+//     // Borrussia Dortmund Players
+//     [
+//       "Burki",
+//       "Schulz",
+//       "Hummels",
+//       "Akanji",
+//       "Hakimi",
+//       "Weigl",
+//       "Witsel",
+//       "Hazard",
+//       "Brandt",
+//       "Sancho",
+//       "Gotze",
+//     ],
+//   ],
+//   score: "4:0",
+//   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+//   date: "Nov 9th, 2037",
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+//   scorers: {
+//     Gnarby: 1,
+//     Hummels: 1,
+//     Lewandowski: 2,
+//   },
+// };
 
 // MY SOLUTION:
 
@@ -765,3 +765,90 @@ const game = {
 //   const teamStr = team === "x" ? "draw" : `victory for ${game[team]}`;
 //   console.log(`Odd of ${teamStr} ${odd}`);
 // }
+
+// Coding Challenge #11
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    // Bayern Munich Players
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    // Borrussia Dortmund Players
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+  scorers: {
+    Gnarby: 1,
+    Hummels: 1,
+    Lewandowski: 2,
+  },
+};
+
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '� Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '� Substitution'],
+  [64, '� Yellow card'],
+  [69, '� Red card'],
+  [70, '� Substitution'],
+  [72, '� Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '� Yellow card'],
+]);
+
+console.log([...gameEvents.keys()]);
+
+// 1.
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+// 2.
+gameEvents.delete(64);
+console.log(gameEvents);
+
+// 3.
+
+const averageEventTime = 90 / gameEvents.size;
+console.log(
+  `"An event happened, on average every ${averageEventTime} minutes"`
+);
+
+// 4.
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? 'FIRST' : 'SECOND';
+  console.log(`[${half} HALF] ${min}: ${event}`);
+}
