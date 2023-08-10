@@ -768,87 +768,166 @@ console.log(`The bill was ${bill}, the tip was ${tip} and the total value of is 
 
 // Coding Challenge #11
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    // Bayern Munich Players
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    // Borrussia Dortmund Players
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-  scorers: {
-    Gnarby: 1,
-    Hummels: 1,
-    Lewandowski: 2,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     // Bayern Munich Players
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     // Borrussia Dortmund Players
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+//   scorers: {
+//     Gnarby: 1,
+//     Hummels: 1,
+//     Lewandowski: 2,
+//   },
+// };
 
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '� Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '� Substitution'],
-  [64, '� Yellow card'],
-  [69, '� Red card'],
-  [70, '� Substitution'],
-  [72, '� Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '� Yellow card'],
-]);
+// const gameEvents = new Map([
+//   [17, '⚽ GOAL'],
+//   [36, '� Substitution'],
+//   [47, '⚽ GOAL'],
+//   [61, '� Substitution'],
+//   [64, '� Yellow card'],
+//   [69, '� Red card'],
+//   [70, '� Substitution'],
+//   [72, '� Substitution'],
+//   [76, '⚽ GOAL'],
+//   [80, '⚽ GOAL'],
+//   [92, '� Yellow card'],
+// ]);
 
-console.log([...gameEvents.keys()]);
+// console.log([...gameEvents.keys()]);
 
-// 1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// // 1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-// 2.
-gameEvents.delete(64);
-console.log(gameEvents);
+// // 2.
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-// 3.
+// // 3.
 
-const averageEventTime = 90 / gameEvents.size;
-console.log(
-  `"An event happened, on average every ${averageEventTime} minutes"`
-);
+// const averageEventTime = 90 / gameEvents.size;
+// console.log(
+//   `"An event happened, on average every ${averageEventTime} minutes"`
+// );
 
-// 4.
-for (const [min, event] of gameEvents) {
-  const half = min <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${min}: ${event}`);
-}
+// // 4.
+// for (const [min, event] of gameEvents) {
+//   const half = min <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${min}: ${event}`);
+// }
+
+// Coding Challenge #12
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+
+// document.querySelector('button').addEventListener('click', function () {
+//   const text = document.querySelector('textarea').value;
+//   const rows = text.split('\n');
+
+//   for (const [i, row] of rows.entries()) {
+//     const [first, second] = row.toLowerCase().trim().split('_');
+//     const output = `${first}${second.replace(
+//       second[0],
+//       second[0].toUpperCase()
+//     )}`;
+//     console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+//   }
+// });
+
+// Coding Challenge #13
+
+// MY SOLUTION:
+/*
+const poll = {
+    question: 'What is your favorite programming language?',
+    options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+    answers: new Array(4).fill(0),
+    registerNewAnswer() {
+      const answer = Number(
+        prompt(
+          `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+        )
+      );
+  
+      if (typeof answer === 'number' && answer < this.answers.length) {
+        this.answers[answer]++;
+      } else {
+        alert('Not a number between 0 and 3');
+      }
+      // ⬆ WITHOUT THE "ELSE" & "ALERT" ⬆
+      // typeof answer === 'number' &&
+      // answer < this.answers.length &&
+      // this.answers[answer]++;
+  
+      this.displayResults('string');
+      this.displayResults();
+    },
+    displayResults(type = 'array') {
+      if (type === 'array') {
+        console.log(poll.answers);
+      } else if (type === 'string') {
+        console.log(`Poll results are ${this.answers.join(',')}`);
+      }
+    },
+  };
+  
+  // Action When Button is Clicked
+  document
+    .querySelector('.poll')
+    .addEventListener('click', poll.registerNewAnswer.bind(poll));
+  
+  // 4. BONUS
+  // poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+  
+  // Test Arrays:
+  // // [5, 2, 3]
+  // // [1, 5, 3, 9, 6, 1]
+  */
+
+// Coding Challenge #14
+
+// (function () {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red';
+
+//   document.querySelector('body').addEventListener('click', function () {
+//     header.style.color = 'blue';
+//   });
+// })();

@@ -1,9 +1,6 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
+/*
 // Data needed for first part of the section
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
@@ -52,6 +49,7 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+*/
 
 // ---------------WHICH DATA STRUCTURE TO USE? START------------------
 /*
@@ -517,7 +515,7 @@ console.log(typeOf new String("jonas").slice(1));
 // ----------------- WORKING WITH STRINGS pt.1 END--------------------
 
 // ---------------- WORKING WITH STRINGS pt.2 START-------------------
-
+/*
 // STARTER CODE:
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
@@ -527,7 +525,7 @@ const plane = 'A320';
 console.log(airline.toLowerCase());
 console.log('jonas'.toUpperCase());
 
-// Practical Example #1. Fixing Capitalization In a Name:
+// PRACTICAL EXAMPLE #1. Fixing Capitalization In a Name:
 const passenger = 'jOnAs'; //Jonas
 
 // a. Put everything into lowercase
@@ -546,7 +544,7 @@ const correctSpelling = function (name) {
 };
 correctSpelling('pddFeter');
 
-// Practical Example #2. Comparing Emails:
+// PRACTICAL EXAMPLE #2. Comparing Emails:
 const email = 'hello@jonas.io';
 const loginEmail = ' Hello@Jonas.Io \n';
 
@@ -566,7 +564,7 @@ console.log(email === normalizedEmail);
 
 // OBS. Regarding .trim(), as of ES 2019 we also have .trimStart() and .trimEnd(), which you can use to trim white-space only from the start or the end of a STRING
 
-// Practical Example #3. Replacing Parts of a String:
+// PRACTICAL EXAMPLE #3. Replacing Parts of a String:
 const priceUS = '$288,97';
 const priceBR = priceUS.replace('$', 'R$').replace(',', '.');
 console.log(priceUS);
@@ -578,7 +576,710 @@ const announcement =
 
 // And you can use .replaceAll() to target all instances at once
 console.log(announcement.replaceAll('door', 'gate'));
-// Yet a second way of replacing all instances of the word 'door' would be to use a REGULAR EXPRESSION. To accomplish this we put the string inbetween slashes instead of quotes, follwed by a 'g' to indicate
+// Yet a second way of replacing all instances of the word 'door' would be to use a REGULAR EXPRESSION. To accomplish this we put the string inbetween slashes instead of quotes, follwed by a 'g' which stand for "global"
 console.log(announcement.replaceAll(/door/g, 'gate'));
 
+// PRACTICAL EXAMPLE #4. Boolean Returning String Methods
+const planeNeo = 'Airbus A320neo';
+console.log(planeNeo.includes('neo'));
+console.log(planeNeo.includes('Boeing'));
+// As long as the string combo doesn't break, .startsWith() will return true
+console.log(planeNeo.startsWith('Air'));
+
+if (planeNeo.startsWith('Airbus') && planeNeo.endsWith('neo')) {
+  console.log(`The ${planeNeo} is a part of the NEW Airbus family`);
+}
+
+// PRACTICAL EXAMPLE #5. Check if passengers bag is in the plane:
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed onboard');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+*/
+
 // ----------------- WORKING WITH STRINGS pt.2 END--------------------
+
+// ---------------- WORKING WITH STRINGS pt.3 START-------------------
+/*
+
+// Let's start by learning about one of the most powerful STRING METHODS available. ".split()"
+
+// ".split()" allows us to split a STRING into multiple parts based on a DIVIDER STRING.
+
+// Inside the METHOD we will specify the divider, in this case "+", so this splits our STRING at every instance of "+" and stores the results into ELEMENTS of a new ARRAY:
+console.log('a+very+nice+string'.split('+'));
+
+// Let's try the same with a name:
+console.log('Lucas Patricio'.split(' '));
+
+// Now, this .split() when used in conjunction with destructuring can create variables directly like so:
+const [firstName, lastName] = 'Lucas Patricio'.split(' ');
+
+// The firstName an lastName variables are direct results of the ".split()" method. To break it down further. ".split()" creates an ARRAY with 2 entries. The first one "Lucas" gets assigned to the firstName variable, and "Patricio" into lastName.
+
+// Now lets do the opposite. Lets .join() elements together
+// Lets say you wanted to start the STRING with "Mr.", we can do so like this:
+
+// We first declare a variable with an ARRAY of all the elements we want joined together, and at the end of the array we apply the ".join() method". Finally, our ARRAY transforms into a STRING joined together by our (" ") JOINER STRING
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+// PRACTICAL EXAMPLE #1. Capitalizing Names
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // Option 1: Capitalize with ".toUpperCase()" and "slice()"
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    // Option 2: Capitalize with ".toUpperCase() and ".replace()"
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('lucas patricio');
+
+// PRACTICAL EXAMPLE #2. Padding
+const message = 'Go to gate 23!';
+// .padStart() can be used to add characters to the beggining of a string. The first argument it takes is the length we want for the string, and second, the character we want to pad the string with:
+console.log(message.padStart(25, '+'));
+// Now the length of our entire string is 25 characters long
+
+// Since we have a .padStart(), we also have a .padEnd(), let's chain it to our last example:
+console.log(message.padStart(25, '+').padEnd(38, '+'));
+
+// PRACTICAL EXAMPLE #3. Credit Card Masking
+const maskCreditCard = function (number) {
+  // 1. Convert number into a string
+  // Bonus Tip: If we add the NUMBER with an EMPTY STRING, we convert it into a STRING. This happens because whenever one of the operands of the "+" is a string, everything gets converted into one aswell
+  const str = number + '';
+
+  // 2. Slice the last 4 digits of our number, and add padding that matches the length of the original + the last 4 digits.
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+console.log(maskCreditCard(123456789));
+console.log(maskCreditCard(324325325123858));
+console.log(maskCreditCard('43241412343143214231551'));
+
+// PRACTICAL EXAMPLE #4. ".repeat()" Method
+const message2 = 'Bad weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+*/
+// ----------------- WORKING WITH STRINGS pt.3 END--------------------
+
+// ------------------ STRING METHODS PRACTICE START-------------------
+/*
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '⛔' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(50);
+  console.log(output);
+}
+*/
+// ------------------- STRING METHODS PRACTICE END -------------------
+
+// ++++++++++++ CHAPTER 10 - A CLOSER LOOK AT FUNCTIONS +++++++++++++
+
+// -------------------- DEFAULT PARAMETERS START ---------------------
+/*
+Sometimes it's useful to have functions where certain parameters are set by default. Thhis way we don't need to change them manually, if we don't need to change the default.
+
+const bookings = [];
+
+const createBooking = function (
+  flightNum,
+  numPassengers = 1,
+  price = 199 * numPassengers
+) {
+  // How to asign a default value before ES6:
+  // const createBooking = function (flightNum, numPassengers, price) {
+  // numPassengers = numPassengers || 1;
+  // price = price || 199;
+  // The above works, becuase whenever the first value is a falsy value, which it is because it's "undefined", its value will default to whatever comes after our "OR" operator, in this case "1"
+
+  // In ES6 forwards, it's much simples, the defaults are assigned directly onto the function parameters!
+
+  // Default values in ES6 can also contain expressions, and even more useful, we can create these expressions using the values of our other specified parameters that were set BEFORE it.
+
+  const booking = {
+    flightNum,
+    numPassengers,
+    price,
+  };
+  console.log(booking);
+  bookings.push(booking);
+};
+
+createBooking('LH123');
+createBooking('LH123', 2, 800);
+createBooking('LH123', 2);
+createBooking('LH123', 5);
+// In order to SKIP A PARAMETER, we can specify that parameter as UNDEFINED, this way we'll get the default value we passed into the function at the start
+createBooking('LH123', undefined, 1000);
+*/
+
+// --------------------- DEFAULT PARAMETERS END ----------------------
+
+// ---------------- HOW PASSING ARGUMENTS WORKS START ----------------
+
+/*
+const flight = 'LH234';
+const jonas = {
+  name: 'Jonas Schmedtmann',
+  passport: 24739479284,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH999';
+  passenger.name = 'Mr.' + passenger.name;
+  if (passenger.passport === 24739479284) {
+    alert('Checked in');
+  } else {
+    alert('Wrong passport!');
+  }
+};
+
+checkIn(flight, jonas);
+console.log(flight);
+console.log(jonas);
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 10000000000);
+};
+
+newPassport(jonas);
+checkIn(flight, jonas);
+*/
+
+// ----------------- HOW PASSING ARGUMENTS WORKS END -----------------
+
+// ---------- FIRST CLASS AND HIGHER ORDER FUNCTIONS START -----------
+/*
+
+******************* PART 1 - FIRST-CLASS FUNCTIONS *******************
+* JavaScript treats functions as "FIRST-CLASS CITIZENS"
+* This means that functions are SIMPLY VALUES
+* Functions are just another "type" of OBJECT
+
+Since objects are values in JS, that means FUNCTIONS are too! This being the case, there are many things we can do with functions such as:
+
+* Storing FUNCTIONS in VARIABLES, or OBJECT PROPERTIES
+
+***Storing functions in variables or properties***
+Example #1:
+const add = (a, b) => a + b;
+
+Example #2:
+const counter = {
+  value: 23,
+  inc: function() {this.value++}
+}
+
+***Passing functions as arguments to OTHER functions***
+Example #1:
+const greet = () => console.log('Hey Jonas');
+btnClose.addEventListener('click', greet);
+
+***Return functions FROM functions***
+
+***Call methods on functions***
+As stated, FUNCTIONS are OBJECTS, and OBJECTS have METHODS, therefore FUNCTIONS also have their own METHODS!!
+
+Example #1:
+counter.inc.bind(someOtherObject);
+
+****************** PART 2 - HIGHER-ORDER FUNCTIONS *******************
+*A higher order function, is a function that RECIEVES another function as an argument, that RETURNS a NEW function, or BOTH (this is only possible because of first-class fucntions)
+
+Example #1 - Functions that RECIEVE another function:
+const greet = () => console.log('Hey Jonas');
+btnClose.addEventListener('click', greet);
+
+* In this example, "addEventListener" is a higher-order function.
+Why? Because it recieves another function as its INPUT, in this case, the "greet" function. In these cases, we address the function that was passed in (greet), as the "CALLBACK FUNCTION", because it'll be called later by the higher-order function when the click event happens.
+
+Example #2 - Functions that RETURN another function:
+function count() { // THIS IS THE HIGHER-ORDER FUNCTION
+  let counter = 0;
+  return function() { // RETURNED FUNCTION
+    counter++;
+  };
+}
+
+***** Distinction between FIRST-CLASS and HIGHER-ORDER functions *****
+First-Class Functions are a feature that a programming language either has or doesn't have. All it means is that all Functions are VALUES. That's all. There are no First-Class functions in practice. It's simply a programming concept.
+
+Higher-Order Functions on the other hand do exist in PRACTICE. Which is made possible BECAUSE a language supports First-Class functions. It's a simple distinction, but notable if you want to address your code properly.
+
+*/
+// ----------- FIRST CLASS AND HIGHER ORDER FUNCTIONS END ------------
+
+// ---------- FUNCTIONS ACCEPTING CALLBACK FUNCTIONS START -----------
+/*
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-Order Function - It's taking in a STRING, and a FUNCTION
+const transformer = function (str, fn) {
+  console.log(`Original String: ${str}`);
+  console.log(`Transformed String: ${fn(str)}`);
+
+  console.log(`Transformed By: ${fn.name}`);
+};
+
+transformer('JavaScript is the best!!', upperFirstWord);
+transformer('JavaScript is the best!!', oneWord);
+
+// JS Uses Call-Backs all the time. The first big advantage of this is that it makes it easy to split up our code into more reusable and interconnected parts. But there is in fact a second bigger advantage to them, which is that call-back functions allow us to create ABSTRACTION
+
+// What is ABSTRATION?
+// Abstraction means that we HIDE the detail of some code implementation because we don't really care about all that detail, which allows us to think about problems at a higher more abstract level.
+
+// Coming back to the TRANSFORMER function example. Transformer doesn't care about HOW the text is transformed. That reasoning happens outside of the transforner function, within seperate functions, which in higher-level problems, would allow us to focus on more pressing issues within the transformer function. In other words, we abstracted some of the complexity within the transformer function away from it.
+
+
+const high5 = function () {
+  console.log('✋🏻');
+};
+document.body.addEventListener('click', high5);
+['Jonas', 'Martha', 'Adam'].forEach(high5);
+*/
+// ----------- FUNCTIONS ACCEPTING CALLBACK FUNCTIONS END ------------
+
+// -------------- FUNCTIONS RETURNING FUNCTIONS START ----------------
+/*
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greeterHey('Steven');
+greet('Hello')('Jonas');
+
+// Challenge, Re-create the above function using ARROW FUNCTIONS
+const arrowHey = hello => name => console.log(`${hello} ${name}`);
+arrowHey('Hi')('Boobie');
+*/
+// --------------- FUNCTIONS RETURNING FUNCTIONS END ------------------
+
+// ---------------- THE CALL AND APPLY METHODS START ------------------
+/*
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // Old Syntax - book: function() {}
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Jonas Schmedtman');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
+
+const euroWings = {
+  airline: 'EuroWings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// CALL METHOD EXPLANATION:
+
+// Look at this line of code:
+// book(23, 'Sarah Williams');
+// We are calling the "book" function which is inside the Lufthansa object. We're feeding it the "flightNum, and name" parameters, but it returns an error message because of the "this" keyword. By calling the book function in this manner, it doesn't know what "this" is. In order to call this function AND specify what the "this" is, we need to use a FUNCTION METHOD. In this case, the "CALL" METHOD.
+
+book.call(euroWings, 23, 'Sarah Williams');
+// Observe the revised version above. First we specify the funtion we're calling "book", next we apply the ".call" method, and we add the object we're targeting before the function parameters. This way "this.bookings.push()" knows that the object we're working with is NOT lufthansa, but indeed EuroWings.
+
+const swissAir = {
+  airline: `Swiss Air Lines`,
+  iataCode: `LX`,
+  bookings: [],
+};
+
+book.call(swissAir, 583, 'Mary Cooper');
+
+// APPLY METHOD EXPLANATION:
+// .apply() and .call() do basically the same thing, with the difference being that .apply() does not recieve a list of arguments after the ".this" keyword. Instead it takes an ARRAY of the arguments. Taking the elements of that ARRAY, and passing them into the FUNCTION
+
+// Let's create an array with the flightNum, and name parameters:
+const flightData = [583, 'George Jones'];
+book.apply(swissAir, flightData);
+console.log(swissAir);
+
+// The .apply() method isn't really all that in modern JavaScript, because there's a better way to do it also using the .call() METHOD:
+
+// By using the SPREAD OPERATOR on the ARRAY we achieve the exact same result.
+book.call(swissAir, ...flightData);
+*/
+// ---------------- THE CALL AND APPLY METHODS END ------------------
+
+// --------------------- THE BIND METHOD START ----------------------
+/*
+// STARTER CODE ⬇
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // Old Syntax - book: function() {}
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+const book = lufthansa.book;
+
+const euroWings = {
+  airline: 'EuroWings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const swissAir = {
+  airline: `Swiss Air Lines`,
+  iataCode: `LX`,
+  bookings: [],
+};
+// STARTER CODE ⬆
+
+/*
+Just like the .call() method, we can use .bind() to manually set the "this" keyword for any function call.
+
+The big difference here, is that .bind() doesn't immediately call the function. Instead it returns a new function, in which the "this" keyword is newly bound.
+
+*/
+/*
+const bookEW = book.bind(euroWings); // This method makes it so that a NEW function is created, where the THIS keyword will always be set to EuroWings
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swissAir);
+
+bookEW(23, 'Steven Williams');
+bookEW(23, 'John Peter');
+console.log(euroWings);
+
+// In the .call() METHOD we can pass multiple argumemnts besides the "this" keyword. In the bind method, we can do the same. Doing so with .bind() means those arguments will always be set in stone. Sticking with the airline example. By using .bind() we can create a function for one specific airline and flight number:
+
+const bookEW23 = book.bind(euroWings, 23);
+// Obs. Specifying parts of a function's arguments like we've done here, is known as "partial appliction"
+
+bookEW23('Peter Pica');
+bookEW23('Martha Coopers');
+
+// Bind Method with Event Listeners
+
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Observation:
+// If "lufthansa.buyPlane" wasn't binded, the "this" keyword in our buyPlane function would point to the "Buy New Plane" button. By using the bind method we specify WHERE the "this" keyword will take its data from.
+
+// Partial Application of the Bind Method
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+// We can now use the bind method on the above function, and preset the rate to always be a predetermined value.
+
+// Since the first argument in our .bind() method is always the "this" keyword, but we don't have any need for it, we can set it as "null" (it could be any other value, but null is a standard) to skip it.
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value * 0.23; / The above would be an equivalent to this arrow function
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+// CHALLENGE - Recreate the above without using .bind()
+
+// Using Arrow Functions
+const fixedRate = rate => value => value + value * rate;
+const addVAT2 = fixedRate(0.23);
+console.log(addVAT2(10));
+
+// Using Regular Functions
+const rateFixed = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+const vatAdd2 = rateFixed(0.15);
+console.log(vatAdd2(10));
+*/
+// ---------------------- THE BIND METHOD END -----------------------
+
+// Coding Challenge #13
+
+/*
+
+const poll = {
+  question: 'What is your favorite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const answer = Number(
+      prompt(
+        `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+      )
+    );
+
+    if (typeof answer === 'number' && answer < this.answers.length) {
+      this.answers[answer]++;
+    } else {
+      alert('Not a number between 0 and 3');
+    }
+    // ⬆ WITHOUT THE "ELSE" & "ALERT" ⬆
+    // typeof answer === 'number' &&
+    // answer < this.answers.length &&
+    // this.answers[answer]++;
+
+    this.displayResults('string');
+    this.displayResults();
+  },
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(poll.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(',')}`);
+    }
+  },
+};
+
+// Action When Button is Clicked
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+// 4. BONUS
+// poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+
+// Test Arrays:
+// // [5, 2, 3]
+// // [1, 5, 3, 9, 6, 1]
+
+*/
+
+// ------------ IMMEDIATELY INVOKED FUNCTION EXPRESSIONS(IIFE) START -----------
+/*
+Sometime we need a function that is only executed once and never again. One thar dissapears right after it's called once.
+
+OBS. This technique is needed for example, when working with async/await
+*/
+
+/*
+// ⬇ THIS APPEARS TO BE WHAT WE WANT, BUT IT'S NOT ⬇
+// const runOnce = function () {
+//   console.log('This will never run again');
+// };
+// runOnce();
+// ⬆ THIS APPEARS TO BE WHAT WE WANT, BUT IT'S NOT ⬆
+
+// Here's how to execute a function immediately, without even having to save it somewhere.
+
+// 1. Write a function expression by itself, without even assigning a variable to it.
+// 2. Wrap it inside a parenthesis. By doing so we transform this function which was previously a STATEMENT, into an EXPRESSION.
+// 3. Finally at the very end of the expression we invoke it. Hence the name: IMMEDIATELY INVOKED FUNCTION EXPRESSIONS(IIFE)
+// 4. PAY ATTENTION TO THE PARENTHESIS!!!
+
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23; // Because "isPrivate" is being called outside the function's scope
+})();
+
+console.log(isPrivate); // This console.log returns an error
+//
+
+// ARROW FUNCTION VERSION
+(() => console.log('This will also NEVER run again!'))();
+
+// Why was this pattern actually invented??
+// As we know, functions create scopes. Most importantly, an outer scope does not have access to variables from an inner scope.
+// For example. Our GLOBAL SCOPE, doesn't have access to variables we've created inside our functions.
+// On the other hand, anything defined outside, on the GLOBAL SCOPE, can be accessed by our function.
+// This being the case, we can say that any data created within a scope is "private", or "encapsulated"
+// Data Encapsulation and Data Privacy are very important programming concepts.
+// It's common that we may need to protect our code from other parts of our program, or external scripts and libraries.
+
+// When we declare a block, and declare a variable inside it:
+{
+  const isPrivate = 23;
+  var notPrivate = 45; // This variable declared with "var" on the other hand, is accessable because it ignores the block.
+}
+// Whatever is outside cannot access it:
+console.log(notPrivate);
+console.log(isPrivate);
+*/
+
+// ------------- IMMEDIATELY INVOKED FUNCTION EXPRESSIONS(IIFE) END ------------
+
+// ------------------------------ CLOSURES START -------------------------------
+/*
+
+// *ABOUT CLOSURES
+// Closures are not a feature that we explicitly use. We don't create functions manually, as we do with a new array or function.
+// Closures simply happen in certain situations. Thus we need to identify these situations
+
+// In the example below, lets create one of those situations:
+const secureBooking = function () {
+  // The function is called secureBooking, because the passengerCount can't be manipulated from the outside
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+secureBooking();
+booker();
+booker();
+booker();
+
+// As you can observe by executing the "booker()" function more than once, the passengerCount variable's value is incremented with each iteration.  Our "booker" variable is able to hold on to data created inside of a higher-order function, and build upon it. This in essence is what a "closure" is.
+
+// Another way of putting it would be to say that a closure makes it so that a function remembers all the variables that existed at its birth-place. In this case, 'secureBooking'.
+
+// Now, why does this happen? The secret behind closures is this:
+
+// Any function ALWAYS has access to the variable enviorment of the EXECUTION CONTEXT in which the function was created. Looking at our "booker()" example. booker() was created within the execution contect of secureBooking(), which in turn means that it has access to that function's variable enviroment, which in istelf contains the "passengerCount" variable. Finally, this is how booker() has access to the passengerCount variable. This connection is what we call a closure.
+
+// Lets say that one more time.
+
+// A function ALWAYS HAS ACCESS to the EXECUTION CONTEXT in which it was created. EVEN AFTER that execution context is gone. A CLOSURE then is basically the variable environment attached to the function exactly as it was at the time and place in which it was created.
+
+// ++++++++++++++++++++++++++ DEFINTITIONS OF CLOSURES +++++++++++++++++++++++++
+/*
+DefInition #1
+A closure is the closed-over VARIABLE ENVIRONMENT of the execution contect IN WHICH A FUNCTION WAS CREATED, even AFTER that execution context is gone; or in other words, even after the function to which the execution context belongs has RETURNED
+
+⬇ less formal ⬇
+
+Definition #2
+A closure gives a function access to all the variables OF IT'S PARENT FUNCTION, even AFTER that parent function has returned. The function keep sa REFERENCE to its outer space, which PRESERVERS the scope chain throughout time.
+
+⬇ less formal ⬇
+
+Definition #3
+A closure makes sure that a function doesn't lose connection to VARIABLES THAT EXISTED A THE FUNCTION'S BIRTHPLACE
+
+OBSERVATION:
+We do NOT manually create closures. The conditions for the existance of closures are an automatic JavaScript feature. We can't access closed-over variables explicitly. A closure is NOT a tangible JavaScript object.
+
+In other words, it's a special behavior or feature of the JavaScript language. When certain conditions are met, a closure is formed automatically, and it allows us to access variables even after their original scope (where they were defined) has finished executing.
+
+To summarize, closures are an automatic and useful feature of JavaScript that allow us to access variables even when they are no longer in their original scope. 
+
+We can observe that closures have access to variables that otherwise shouldn't exist any longer, but we CANNOT directly access these variables. However, what we can do is look at this internal property in the console using "console.dir()", see the example below:
+*/
+
+// console.dir(booker);
+
+// ------------------------------- CLOSURES END --------------------------------
+
+// ------------------------ MORE CLOSURE EXAMPLES START ------------------------
+// In the previous section we created a CLOSURE by returning a function within another function. In the examples below we will create a closure without returning a function from another function.
+
+// Example #1
+
+// let f;
+
+// const g = function () {
+//   const a = 23;
+//   f = function () {
+//     console.log(a * 2);
+//   };
+// };
+
+// const h = function () {
+//   const b = 777;
+//   f = function () {
+//     console.log(b * 2);
+//   };
+// };
+
+// g();
+// f();
+// console.dir(f);
+// // Re-assigning f function
+// h();
+// f();
+// console.dir(f);
+
+// // Example #2
+// const boardPassengers = function (n, wait) {
+//   // const perGroup = n / 3;
+
+//   setTimeout(function () {
+//     console.log(`We are now boarding all ${n} passengers`);
+//     console.log(`There are 3 groups, each with ${perGroup} passengers`);
+//   }, wait * 1000);
+
+//   console.log(`Will start boarding in ${wait} seconds`);
+// };
+
+// const perGroup = 1000;
+// boardPassengers(180, 3);
+
+// ------------------------- MORE CLOSURE EXAMPLES END -------------------------
+
+// ------------------------ SIMPLE ARRAY METHODS START -------------------------
+
+// ------------------------- SIMPLE ARRAY METHODS END --------------------------
