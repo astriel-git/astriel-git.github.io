@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP
@@ -443,3 +443,27 @@ const convertTitleCase = function (title) {
 console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title but not too long'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+*/
+
+// -------------------------------------------------------------
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+// 1. Loop Through the Array and Add the Recommended Portion for Each Dog
+dogs.forEach(function (dog) {
+  const recommendedFood = Math.round(dog.weight ** 0.75 * 28);
+  dog['recommended'] = recommendedFood;
+});
+// 2.Find Sarah's Dog
+dogs.forEach(function (dog) {
+  if (dog.owners.includes('Sarah')) {
+    dog.curFood > dog.recommended * 0.9 && dog.curFood < dog.recommended * 1.1
+      ? console.log(`Sarah's dog eats too much`)
+      : console.log(`Sarah's dog eats too little`);
+  }
+});
